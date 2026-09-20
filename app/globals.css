@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8f8f0;
+  --foreground: #2a2118;
+  --beige: #e8dfc8;
+  --light-beige: #f3eee0;
+  --palm: #684900;
+  --palm-gold: #ffe386;
+  --muted: #6b5e4e;
+  --surface: #fffcf5;
+  --ink: #1c1610;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-beige: var(--beige);
+  --color-light-beige: var(--light-beige);
+  --color-palm: var(--palm);
+  --color-palm-gold: var(--palm-gold);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-khand);
+  --font-hand: var(--font-patrick-hand);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--palm-gold) 70%, white);
+  color: var(--ink);
+}
+
+.font-display {
+  font-family: var(--font-khand), sans-serif;
+}
+
+.font-hand {
+  font-family: var(--font-patrick-hand), cursive;
+}
+
+.hero-wash {
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 20%, rgba(255, 227, 134, 0.35), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 15% 80%, rgba(104, 73, 0, 0.12), transparent 50%),
+    linear-gradient(165deg, #f8f8f0 0%, #efe8d4 45%, #e4d8b8 100%);
+}
+
+.texture-dots {
+  background-image: radial-gradient(rgba(42, 33, 24, 0.06) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes loader-wipe {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.animate-rise {
+  animation: rise-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-float {
+  animation: float-y 5s ease-in-out infinite;
+}
+
+.dialog-backdrop::backdrop {
+  background: rgba(28, 22, 16, 0.45);
+  backdrop-filter: blur(4px);
+}
